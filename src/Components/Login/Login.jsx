@@ -1,5 +1,5 @@
 // import PropTypes from 'prop-types';
-
+import googleIcon from "../../assets/images/google.png"
 import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/authProvider";
@@ -69,7 +69,7 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             <p>New to this site? Please<NavLink to="/registration" className="underline text-blue-600 font-bold"> Register!</NavLink></p>
-            <p><button onClick={handleGoogleSignIn} className="btn btn-ghost bg-yellow-300">Google</button></p>
+            <p><button onClick={handleGoogleSignIn} className="btn btn-ghost bg-yellow-300"><img src={googleIcon} alt="" /></button></p>
             {
              error && (
              <p className="text-[14px] text-red-600 font-semibold">
