@@ -1,10 +1,11 @@
 // import PropTypes from 'prop-types';
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/authProvider";
 
 const Login = () => {
+  const [error, setError] = useState(null);
   const {signInUser,signInWithGoogle} = useContext(AuthContext)
   const navigate = useNavigate();
 
@@ -17,6 +18,7 @@ const Login = () => {
     })
     .catch(error=>{
       console.error(error.message);
+      setError(error);
     })
   }
 
@@ -36,6 +38,7 @@ const Login = () => {
     })
     .catch(error =>{
       console.log(error.message);
+      setError(error);
     })
   }
     return (
@@ -67,6 +70,13 @@ const Login = () => {
               </div>
             <p>New to this site? Please<NavLink to="/registration" className="underline text-blue-600 font-bold"> Register!</NavLink></p>
             <p><button onClick={handleGoogleSignIn} className="btn btn-ghost bg-yellow-300">Google</button></p>
+            {
+             error && (
+             <p className="text-[14px] text-red-600 font-semibold">
+                 {`Error: (${error.message.split("Firebase: Error (auth/")[1]}`}
+             </p>
+              )
+            }
             </form>
           </div>
         </div>

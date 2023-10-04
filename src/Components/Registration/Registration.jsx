@@ -1,11 +1,12 @@
 // import PropTypes from 'prop-types';
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/authProvider";
 
 
 const Registration = () => {
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
     const {createUser} = useContext(AuthContext); //this line import AuthContext from AuthProvider. as the createUser inside AuthProvider is defined as a context, so we have to access the function using useContext
     console.log(createUser);
@@ -24,6 +25,7 @@ const Registration = () => {
       })
       .catch(error=>{
         console.log(error.message);
+        setError(error);
       })
       //create user
     }
@@ -58,6 +60,13 @@ const Registration = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             <p>Already have an account? Please<NavLink to="/login" className="underline text-blue-600 font-bold"> Login!</NavLink></p>
+            {
+             error && (
+             <p className="text-[14px] text-red-600 font-semibold">
+                 {`Error: (${error.message.split("Firebase: Error (auth/")[1]}`}
+             </p>
+              )
+            }
             </form>
           </div>
         </div>
