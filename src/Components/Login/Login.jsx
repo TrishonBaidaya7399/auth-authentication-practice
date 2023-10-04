@@ -69,7 +69,8 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             <p>New to this site? Please<NavLink to="/registration" className="underline text-blue-600 font-bold"> Register!</NavLink></p>
-            <p className="mr-0 flex items-center font-semibold gap-2">
+            <p className="mt-4 border-[3px] border-t-red-600 border-l-yellow-300 border-b-green-500 border-r-blue-600 rounded-lg px-4 py-1 w-[60%] mx-auto flex items-center font-semibold gap-2">
+              <img onClick={handleGoogleSignIn} className="w-[40px] h-[40px]" src={googleIcon} alt="" />
               <span>
               <span className="text-[20px] text-red-600">Lo</span>
               <span className="text-[20px] text-yellow-300">gin</span>
@@ -78,7 +79,7 @@ const Login = () => {
               <span className="text-[20px] text-green-500">Wi</span>
               <span className="text-[20px] text-blue-600">th </span>
               </span>
-              <img onClick={handleGoogleSignIn} className="w-[40px] h-[40px]" src={googleIcon} alt="" /></p>
+              </p>
             {
              error && (
              <p className="text-[14px] text-red-600 font-semibold">
