@@ -73,7 +73,7 @@ const Login = () => {
             {
              error && (
              <p className="text-[14px] text-red-600 font-semibold">
-                 {`Error: (${error.message.split("Firebase: Error (auth/")[1]}`}
+                 {`${error.message.split("Firebase:")[1]}`}
              </p>
               )
             }
