@@ -69,7 +69,16 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             <p>New to this site? Please<NavLink to="/registration" className="underline text-blue-600 font-bold"> Register!</NavLink></p>
-            <p><button onClick={handleGoogleSignIn} className="btn btn-ghost bg-yellow-300"><img src={googleIcon} alt="" /></button></p>
+            <p className="mr-0 flex items-center font-semibold gap-2">
+              <span>
+              <span className="text-[20px] text-red-600">Lo</span>
+              <span className="text-[20px] text-yellow-300">gin</span>
+              </span>
+              <span>
+              <span className="text-[20px] text-green-500">Wi</span>
+              <span className="text-[20px] text-blue-600">th </span>
+              </span>
+              <img onClick={handleGoogleSignIn} className="w-[40px] h-[40px]" src={googleIcon} alt="" /></p>
             {
              error && (
              <p className="text-[14px] text-red-600 font-semibold">
